@@ -70,31 +70,77 @@ main h2 {
     font-size: 1.5rem;
 }
 
-.cards {
+.search-container {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
 }
 
-.card {
+.search-container input {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 20px;
+    width: 250px;
     background-color: #3a3a3a;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 150px;
-    transition: transform 0.3s;
-}
-
-.card a {
-    text-decoration: none;
     color: #fff;
-    font-weight: bold;
-    display: block;
+    font-size: 1rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    background-color: #505050;
+.search-container input::placeholder {
+    color: #aaa;
+}
+
+.tabela-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+thead {
+    background-color: #333;
+}
+
+th, td {
+    padding: 0.8rem;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #3a3a3a;
+}
+
+.acoes button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #f0f0f0;
+    margin: 0 0.3rem;
+    transition: transform 0.2s;
+}
+
+.acoes button:hover {
+    transform: scale(1.2);
+}
+
+button.editar {
+    color: #4CAF50; 
+}
+
+button.deletar {
+    color: #f44336; 
 }
 
 footer {
