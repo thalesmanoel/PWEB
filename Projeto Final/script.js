@@ -45,7 +45,7 @@ function initDB() {
     };
 }
 
-// Carregar filmes (opcionalmente com filtro de busca)
+// Carregar filmes 
 function loadMovies(searchText = '') {
     const transaction = db.transaction([STORE_NAME], 'readonly');
     const store = transaction.objectStore(STORE_NAME);
