@@ -60,9 +60,14 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     flex: 1;
     padding: 2rem;
     text-align: center;
+}
+
+main img {
+    width: 120px;
 }
 
 main h2 {
