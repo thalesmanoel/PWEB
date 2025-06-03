@@ -2,7 +2,6 @@ let db;
 const DB_NAME = 'MoviesDB';
 const STORE_NAME = 'movies';
 
-// Inicialização do banco de dados
 function initDB() {
     const request = indexedDB.open(DB_NAME, 1);
 
@@ -18,12 +17,10 @@ function initDB() {
     request.onsuccess = function (event) {
         db = event.target.result;
 
-        // Se estiver na lista, carrega os filmes
         if (document.querySelector('tbody')) {
             loadMovies();
         }
 
-        // Se estiver na tela de cadastro e houver filme a ser editado
         const editId = localStorage.getItem('editMovieId');
         if (editId) {
             const transaction = db.transaction([STORE_NAME], 'readonly');
@@ -45,7 +42,6 @@ function initDB() {
     };
 }
 
-// Carregar filmes 
 function loadMovies(searchText = '') {
     const transaction = db.transaction([STORE_NAME], 'readonly');
     const store = transaction.objectStore(STORE_NAME);
@@ -62,7 +58,6 @@ function loadMovies(searchText = '') {
     };
 }
 
-// Exibir filmes na tabela
 function displayMovies(movies) {
     const tbody = document.querySelector('tbody');
     if (!tbody) return;
@@ -90,13 +85,11 @@ function displayMovies(movies) {
     });
 }
 
-// Editar filme
 function editMovie(id) {
     localStorage.setItem('editMovieId', id);
     window.location.href = 'cadastro-filmes.html';
 }
 
-// Adicionar filme
 function addMovie(movie) {
     const transaction = db.transaction([STORE_NAME], 'readwrite');
     const store = transaction.objectStore(STORE_NAME);
@@ -108,7 +101,6 @@ function addMovie(movie) {
     };
 }
 
-// Atualizar filme
 function updateMovie(movie) {
     const transaction = db.transaction([STORE_NAME], 'readwrite');
     const store = transaction.objectStore(STORE_NAME);
@@ -120,7 +112,6 @@ function updateMovie(movie) {
     };
 }
 
-// Deletar filme
 function deleteMovie(id) {
     const transaction = db.transaction([STORE_NAME], 'readwrite');
     const store = transaction.objectStore(STORE_NAME);
@@ -128,7 +119,6 @@ function deleteMovie(id) {
     loadMovies();
 }
 
-// Preencher formulário com dados do filme
 function populateForm(movie) {
     document.getElementById('movieId').value = movie.id;
     document.getElementById('titulo').value = movie.titulo;
@@ -142,7 +132,6 @@ function populateForm(movie) {
     document.getElementById('notaUsuario').value = movie.notaUsuario;
 }
 
-// Limpar formulário
 function clearForm() {
     const form = document.getElementById('movieForm');
     if (form) form.reset();
@@ -150,7 +139,7 @@ function clearForm() {
     if (idField) idField.value = '';
 }
 
-// Inicialização
+
 window.onload = function () {
     initDB();
 
