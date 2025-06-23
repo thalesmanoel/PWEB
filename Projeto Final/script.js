@@ -158,7 +158,6 @@ window.onload = function () {
                 classificacao: document.getElementById('classificacao').value,
                 sinopse: document.getElementById('sinopse').value,
                 notaUsuario: parseFloat(document.getElementById('notaUsuario').value),
-                dataAdicao: new Date().toISOString().split('T')[0]
             };
 
             const id = document.getElementById('movieId').value;
